@@ -67,7 +67,7 @@ I tried three different models and evaluated them using Mean Absolute Error. I c
 
 I tried three different models:
 *	**Multiple Linear Regression** – Baseline for the model
-*	**Lasso Regression** – Because of the sparse data from the many categorical variables, I thought a normalized regression like lasso would be effective.
+*	**Lasso Regression** – Due to the sparse data from many categorical variables, I thought a normalized regression like lasso would be effective.
 *	**Random Forest** – Again, with the sparsity associated with the data, I thought that this would be a good fit. 
 
 ## Model performance
@@ -75,6 +75,7 @@ The Random Forest model far outperformed the other approaches on the test and va
 *	**Random Forest** : MAE = 14.82
 *	**Multiple Linear Regression**: MAE = 20.763
 *	**Lasso Regression**: MAE = 19.251
+*	**Test Ensemble**: Ensemble methods are techniques that create multiple models and then combine them to produce improved results. MAE = 18.811 
 
 ## Productionization 
-In this step, I built a flask API endpoint that was hosted on a local webserver by following along with the TDS tutorial in the reference section above. The API endpoint takes in a request with a list of values from a job listing and returns an estimated salary.
+I built a flask API endpoint that was hosted on a local web server by following along with the tutorial in the reference section above. The API endpoint takes in a request with a list of values from a job listing and returns an estimated salary.
