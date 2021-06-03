@@ -1,5 +1,5 @@
 # Project Overview - Data Science Salary Predictor
-
+#### This is my first Major Data Science Project
 - Created a estimates the salary of a data scientist to help data scientist negotiate their income when they get a job
 - Scrapped more than 1000 job descriptions from (https://www.glassdoor.co.in/index.htm "Glassdoor")
 - Performed data cleaning and feature engineerin from the text of each job description to quantify the value companies put on different data science tools like python, excel, aws, and spark.
@@ -52,12 +52,12 @@ After scraping the data, I needed to clean it up so that it will be able to be f
 *	Column for simplified job title and Seniority 
 *	Column for description length 
 
-## EDA
+## Exploratory Data Analysis
 I looked at the distributions of the data and the value counts for the various categorical variables. Below are a few highlights from the pivot tables. 
 
-![alt text](https://github.com/PlayingNumbers/ds_salary_proj/blob/master/salary_by_job_title.PNG "Salary by Position")
-![alt text](https://github.com/PlayingNumbers/ds_salary_proj/blob/master/positions_by_state.png "Job Opportunities by State")
-![alt text](https://github.com/PlayingNumbers/ds_salary_proj/blob/master/correlation_visual.png "Correlations")
+![alt text](https://github.com/ABHIRAM1234/DS_Salary_Project/blob/main/Job%20Opportunities%20by%20State.PNG "Job Opportunites in different states")
+![alt text](https://github.com/ABHIRAM1234/DS_Salary_Project/blob/main/Salary_by_position.PNG "Salary for Different Position")
+![alt text](https://github.com/ABHIRAM1234/DS_Salary_Project/blob/main/correlation.PNG "Correlations")
 
 ## Model Building 
 
@@ -73,8 +73,8 @@ I tried three different models:
 ## Model performance
 The Random Forest model far outperformed the other approaches on the test and validation sets. 
 *	**Random Forest** : MAE = 11.22
-*	**Linear Regression**: MAE = 18.86
-*	**Ridge Regression**: MAE = 19.67
+*	**Multiple Linear Regression**: MAE = 18.86
+*	**Lasso Regression**: MAE = 19.67
 
 ## Productionization 
 In this step, I built a flask API endpoint that was hosted on a local webserver by following along with the TDS tutorial in the reference section above. The API endpoint takes in a request with a list of values from a job listing and returns an estimated salary.
