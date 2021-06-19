@@ -1,6 +1,6 @@
 # Project Overview - Data Science Salary Predictor
 #### This is my first Major Data Science Project
-- Created a estimates the salary of a data scientist to help data scientist negotiate their income when they get a job
+- Created a tool that estimates the salary of a data scientist to help data scientist negotiate their income when they get a job
 - Scrapped more than 1000 job descriptions from (https://www.glassdoor.co.in/index.htm "Glassdoor")
 - Performed data cleaning and feature engineerin from the text of each job description to quantify the value companies put on different data science tools like python, excel, aws, and spark.
 - Created different models by optimizing Linear, Lasso, and Random Forest Regressors using GridsearchCV to reach the best model.
