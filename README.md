@@ -72,10 +72,10 @@ I tried three different models:
 
 ## Model performance
 The Random Forest model far outperformed the other approaches on the test and validation sets. 
-*	**Random Forest** : MAE = 14.82
-*	**Multiple Linear Regression**: MAE = 20.763
-*	**Lasso Regression**: MAE = 19.251
-*	**Test Ensemble**: Ensemble methods are techniques that create multiple models and then combine them to produce improved results. MAE = 18.811 
+*	**Random Forest** : MAE = 11.22
+*	**Multiple Linear Regression**: MAE = 18.86
+*	**Lasso Regression**: MAE = 19.67
+*	**Test Ensemble**: Ensemble methods are techniques that create multiple models and then combine them to produce improved results
 
 ## Productionization 
 I built a flask API endpoint that was hosted on a local web server by following along with the tutorial in the reference section above. The API endpoint takes in a request with a list of values from a job listing and returns an estimated salary.
