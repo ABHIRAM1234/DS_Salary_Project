@@ -1,0 +1,52 @@
+This was my first ever end to end project in the field of data science. I was just getting into the field and was interested in the kind of money that data scientists make in the US
+
+
+
+linkedin, javascript component more difficult to scrape
+
+glassdoor, salary data which is useful, glassdoor est (not good to use variable which is an estimate)
+
+scraping the data
+bs4 -> organizes the html on a page and lets us pull some of the elements
+selenium -> a bot that goes through and clicks on elements of a page and copies them to a dataframe
+
+glassdoor uses java script so better to use selenium 
+
+found glassdoor scraper resource
+changed path to my chromdriver
+
+pop up window issue, I needed to bypass the sign up prompt. Code was not working 
+
+We can click by element instead of a class
+
+changed find_element_by_class_name to  find_element_by_css_selector
+
+one more issue was it filtered jobs only for san Francisco
+
+issue with salary estimate, everything is -1
+
+edited the url, changed span class for salary estimate
+
+
+Data Cleaning
+
+cleaning up the salary estimate by removing "(Glassdoor est.)", remove K, remove "-", remove $, take avg of range
+parse number out of company name
+split the state name 
+change founded variable to how long the company has been around
+parsing job description to find skills like python, spark, R. How different salary estimate will be associated with that
+
+removed salary with value -1
+
+minus_kd -> remove K and dollar signs
+
+some has per hour so converted to annual salary
+
+company name has some ratings, remove
+
+is job location same as HQ
+
+
+Model Building
+
+. get dummy data

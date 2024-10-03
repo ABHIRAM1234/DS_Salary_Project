@@ -57,9 +57,8 @@ df.aws.value_counts()
 df['excel'] = df['Job Description'].apply(lambda x: 1 if 'excel' in x.lower() else 0)
 df.excel.value_counts()
 
-df.columns
+print(df.columns)
+df.drop(columns=['Unnamed: 0.1', 'Unnamed: 0'], inplace = True)
 
-df_out = df.drop(['Unnamed: 0.1'], axis =1)
-df_out = df.drop(['Unnamed: 0'], axis =1)
-
-df_out.to_csv('salary_data_cleaned.csv',index = False)
+print(df.columns)
+df.to_csv('salary_data_cleaned.csv',index = False)
