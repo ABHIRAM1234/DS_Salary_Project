@@ -32,7 +32,6 @@ df_model = df[['avg_salary','Rating','Size','Type of ownership','Industry','Sect
 # get dummy data 
 df_dum = pd.get_dummies(df_model)
 
-
 X = df_dum.drop('avg_salary', axis =1)
 y = df_dum.avg_salary.values
 
@@ -163,8 +162,54 @@ results = pd.concat([results, pd.DataFrame([{
 }])], ignore_index=True)
 
 
-# Print results
+from sklearn.model_selection import RandomizedSearchCV
+
+random_search_xgb = RandomizedSearchCV(estimator=XGBRegressor(random_state=42),
+                                       param_distributions=param_grid_xgb,
+                                       n_iter=100,
+                                       cv=5,
+                                       n_jobs=-1,
+                                       verbose=2,
+                                       random_state=42)
+
+random_search_xgb.fit(X_train, y_train)
+
+y_pred_random_xgb = random_search_xgb.best_estimator_.predict(X_test)
+
+# Update results DataFrame with Randomized Search results
+results = pd.concat([results, pd.DataFrame([{
+    'Model': 'XGBoost_random_grid',
+    'MAE': mean_absolute_error(y_test, y_pred_random_xgb),
+    'MSE': mean_squared_error(y_test, y_pred_random_xgb),
+    'RMSE': np.sqrt(mean_squared_error(y_test, y_pred_random_xgb)),
+    'R-squared': r2_score(y_test, y_pred_random_xgb)
+}])], ignore_index=True)
+
+
+from lightgbm import LGBMRegressor
+
+# Rename columns to remove special characters and spaces
+X_train.columns = X_train.columns.str.replace(' ', '_').str.replace('[^A-Za-z0-9_]', '', regex=True)
+X_test.columns = X_test.columns.str.replace(' ', '_').str.replace('[^A-Za-z0-9_]', '', regex=True)
+
+
+lgbm_model = LGBMRegressor()
+lgbm_model.fit(X_train, y_train)
+y_pred_lgbm = lgbm_model.predict(X_test)
+
+# Update results for LightGBM
+results = pd.concat([results, pd.DataFrame([{
+    'Model': 'LightGBM',
+    'MAE': mean_absolute_error(y_test, y_pred_lgbm),
+    'MSE': mean_squared_error(y_test, y_pred_lgbm),
+    'RMSE': np.sqrt(mean_squared_error(y_test, y_pred_lgbm)),
+    'R-squared': r2_score(y_test, y_pred_lgbm)
+}])], ignore_index=True)
+
+# Print updated results
 print(results)
+
+
 
 
 # Plotting the results
