@@ -72,7 +72,7 @@ I tried three different models:
 
 ## Model performance
 The Random Forest model far outperformed the other approaches on the test and validation sets. 
-*	**Random Forest** : MAE = 11.22
+*	**Random Forest** : MAE = 7.22
 *	**Multiple Linear Regression**: MAE = 18.86
 *	**Lasso Regression**: MAE = 19.67
 *	**Test Ensemble**: Ensemble methods are techniques that create multiple models and then combine them to produce improved results
